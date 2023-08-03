@@ -14,6 +14,12 @@ class ContactController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+public function __construct() {
+   $this->middleware("auth");
+}
+
+
     public function index()
     {
         
@@ -143,7 +149,8 @@ $request->validate([
     "name"=>['required','string', 'max:255']
 ]);
 
-$contacts=Contact::where("name",$request->name)->paginate(5);
+$contacts=Contact::where("name",$request->name)->paginate(5)->withQueryString(); 
+// withQueryString() because i have name query string and pagination use page query string // this will solve why paginator redirect me back to first page in pagination
 
 
 

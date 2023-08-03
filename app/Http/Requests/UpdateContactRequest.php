@@ -23,11 +23,11 @@ class UpdateContactRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['nullable','string', 'max:255'],
-            'email' => ['nullable','email', 'max:255'],
+            'name' => ['required','string', 'max:255'],
+            'email' => ['required','email', 'max:255'],
          
  
-            'gender' => ['nullable', Rule::in(['male', 'female'])],
+            'gender' => ['required', Rule::in(['male', 'female'])],
             'cover_path' => ['nullable',"image"],
             'city' => ['nullable',"string"],
             'cv' => ['nullable',"string"],

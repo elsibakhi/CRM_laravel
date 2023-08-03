@@ -22,6 +22,8 @@
         
         @endif 
         >
+
+        <x-input-error :messages="$errors->get('name')" class="mt-2" />
       </div>
       <div class="form-group">
         <label for="exampleInputEmail3">Email address</label>
@@ -31,6 +33,7 @@
         value="{{old("email")??$contact->email}}"
         @endif 
         >
+        <x-input-error :messages="$errors->get('email')" class="mt-2" />
       </div>
  
       <div class="form-group">
@@ -49,6 +52,7 @@
             @endif 
              >Female</option>
           </select>
+          <x-input-error :messages="$errors->get('gender')" class="mt-2" />
         </div>
       <div class="form-group">
         <label>File upload</label>
@@ -59,15 +63,17 @@
             <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
           </span>
         </div>
+        <x-input-error :messages="$errors->get('cover_path')" class="mt-2" />
       </div>
       <div class="form-group">
         <label for="exampleInputCity1">City</label>
-        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location" name="city" 
+        <input type="text" class="form-control " id="exampleInputCity1" placeholder="Location" name="city" 
         @if ($name=="edit")
             
         value="{{old("city")??$contact->city}}"
         @endif
         >
+        <x-input-error :messages="$errors->get('city')" class="mt-2" />
       </div>
       <div class="form-group">
         <label for="exampleTextarea1">CV</label>
@@ -78,6 +84,7 @@
             @endif     
         
         </textarea>
+        <x-input-error :messages="$errors->get('cv')" class="mt-2" />
       </div>
      
       <button type="submit" class="btn btn-outline-primary btn-icon-text">

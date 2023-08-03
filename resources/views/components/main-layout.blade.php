@@ -24,7 +24,7 @@
 </head>
 <body>
   <div class="container-scroller">
-    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row mb-5">
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row ">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo mr-5" href="{{route("dashboard")}}">{{config("app.name")}}</a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{$path}}images/logo-mini.svg" alt="logo"/></a>
@@ -44,10 +44,41 @@
               <form action="{{route("contacts.search")}}" method="get" class="d-flex">
              
                 <input   name="name" type="text" class="form-control" id="navbar-search-input" placeholder="Search by name" aria-label="search" aria-describedby="search">
-                <button  class="btn btn-md btn-dark" type="submit">Search</button>
+                <button  class="btn btn-md btn-success" type="submit">Search</button>
               </form>
             </div>
           </li>
+        </ul>
+
+        <ul class="my-3">
+                        <!-- Authentication -->
+
+                        <li class="nav-item nav-profile dropdown" style="list-style: none">
+                          <a class="nav-link text-primary" href="#" data-toggle="dropdown" id="profileDropdown">
+                       
+              <i class="icon-ellipsis"></i>
+         
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                    
+
+                            
+                        <form method="POST"  action="{{ route('logout') }}">
+                          @csrf
+
+                          <a class="dropdown-item"  href="{{route('logout')}}"
+                          onclick="event.preventDefault();
+                                      this.closest('form').submit();">
+                            <i class="ti-power-off text-primary"></i>
+                            Logout
+
+                          </a>
+                       
+                      </form>
+                          </div>
+                        </li>
+
+
         </ul>
 
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">

@@ -106,7 +106,11 @@
                   @forelse ($contacts as $contact)
                   <tr>
 
-                    <td><img src="{{Storage::url($contact->cover_path)}}" alt="" style="width: 100px; height: 100px; transform: scale(0.7)" ></td>
+                    <td><img src="{{
+                      $contact->cover_path ?
+                      Storage::url($contact->cover_path)
+                      :'default/cover.png'}}" 
+                      alt="" style="width: 100px; height: 100px; transform: scale(0.7)" ></td>
                     <td>{{$contact->name}}</td>
                     <td class="font-weight-bold">{{$contact->email}}</td>
                     <td>{{$contact->gender}}</td>
